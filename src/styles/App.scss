@@ -1,0 +1,110 @@
+@import "./mixins.scss";
+
+body {
+  background-color: #f0f0f0;
+}
+
+.owl-carousel.owl-loaded {
+  position: relative;
+}
+
+.owl-carousel .owl-nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: flex-end;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #666666;
+  margin-right: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+
+  @include MiniDesktopSize {
+    width: 44px;
+    height: 44px;
+  }
+
+  @include MobileSize {
+    width:30px;
+    height:30px;
+   }
+}
+
+.owl-carousel .owl-dots {
+  display: none;
+}
+
+.slider-one .owl-nav {
+  bottom: 0px;
+  display: flex;
+  justify-content: flex-start;
+
+  @include TabletSize {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+}
+.slider-one {
+  bottom: 0px;
+  display: flex;
+  justify-content: flex-start;
+
+  @include TabletSize {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+
+}
+
+.slider-two .owl-nav {
+  top: -100px;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  @include MiniDesktopSize {
+    top: -95px;
+  }
+  
+  @include MobileSize {
+    top: -65px;
+   }
+}
+
+.owl-carousel .owl-item img {
+  width: 45%;
+}
+
+button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #999;
+  font-family: "Gilroy", sans-serif;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #666;
+  }
+}

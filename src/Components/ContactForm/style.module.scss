@@ -1,0 +1,242 @@
+@import "../../styles/mixins";
+
+.root {
+  width: 100%;
+  justify-content: center;
+  font-family: "Gilroy", sans-serif;
+  color: #999999;
+}
+
+.contact_form {
+  width: 490px;
+  padding: 35px 40px 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  span {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 600;
+  }
+
+  p {
+    margin-top: 10px;
+    width: 90%;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @include MiniDesktopSize {
+    width: 360px;
+    padding: 16px 30px 30px;
+    gap: 4px;
+
+    span {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    p {
+      margin-top: 5px;
+      font-size: 15px;
+      line-height: 23.5px;
+      width: 100%;
+    }
+  }
+
+  @include TabletSize {
+    width: 100%;
+    padding: 15px 30px 30px;
+
+    span {
+      font-size: 20px;
+      line-height: 32px;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+
+  @include MobileSize {
+    width: 100%;
+    padding: 12px 20px 30px;
+    gap: 15px;
+
+    span {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+}
+
+.form {
+  @include TabletSize {
+    display: flex;
+    width: 100%;
+    gap: 13px;
+  }
+
+  @include MobileSize {
+    flex-direction: column;
+  }
+}
+
+.form_group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  label {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 300;
+    margin-top: 12px;
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  @include MiniDesktopSize {
+    label {
+      margin-top: 11px;
+    }
+
+    input {
+      height: 44px;
+      font-size: 15px;
+      margin-top: -4px;
+    }
+  }
+
+  @include TabletSize {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @include MobileSize {
+    gap: 6px;
+  }
+}
+
+.checkbox_container {
+  display: inline-block;
+  position: relative;
+  padding-top: 12px;
+  padding-left: 40px;
+  cursor: pointer;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    height: 24px;
+    width: 24px;
+    background-color: #eee;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+
+  input:checked ~ .checkmark {
+    background-color: #999;
+    border-color: #999;
+
+    &:after {
+      display: block;
+    }
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 400;
+    text-underline-offset: 6px;
+  }
+
+  @include MiniDesktopSize {
+    .checkmark {
+      top: 14px;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  @include MobileSize {
+    gap: 6px;
+    padding-left: 32px;
+
+    span {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}
+
+.form_group .error_message {
+  position: absolute;
+  top: 5px;
+  left: 70px;
+  color: red;
+  font-size: 14px;
+  font-weight: 500;
+
+  @include MiniDesktopSize {
+    top: 10px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.form_group input.error {
+  border-color: red;
+}
+
+button {
+  margin-top: 20px;
+
+  @include MiniDesktopSize {
+    margin-top: 15px;
+  }
+
+  @include TabletSize {
+    width: 200px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}

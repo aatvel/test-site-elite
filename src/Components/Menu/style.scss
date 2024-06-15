@@ -1,0 +1,217 @@
+@import "../../styles/mixins";
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 25px;
+  top: 25px;
+
+  @include MobileSize {
+    right: 15px;
+    top: 15px;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: 70px;
+
+  @include MobileSize {
+    top: 50px;
+  }
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #fff;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #424242;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #fff;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  top: -52px;
+  pointer-events: none;
+
+  @include MobileSize {
+    top: -45px;
+    right: 8px;
+  }
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #ffffff;
+  padding: 2.5em 1.5em 0;
+  font-size: 28px;
+
+  @include MobileSize {
+    padding: 20px 23px 20px 14px;
+    font-size: 14px;
+  }
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+
+  color: #b8b7ad;
+  padding: 0.8em;
+
+  @include MobileSize {
+    padding: 0;
+  }
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  font-size: 28px;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.0) !important;
+  left: 500px;
+  top: 0;
+  overflow-y: scroll;
+
+  @include MobileSize {
+    left: 0px;
+  }
+}
+
+.menu-item-wrapper {
+  position: relative;
+  margin-bottom: 10px;
+  .arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid #999;
+    transition: transform 0.3s ease;
+  }
+
+  .arrow-open {
+    transform: rotate(180deg);
+  }
+
+  @include MobileSize {
+    margin-bottom: 0;
+  }
+}
+
+.menu-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  @include MobileSize {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 20px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+.submenu-open {
+  max-height: 200px;
+}
+
+.submenu li {
+  margin-bottom: 10px;
+}
+
+.submenu a {
+  color: #999999;
+  text-decoration: none;
+  font-family: "Gilroy";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21.7px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #e5e5e5;
+}
+
+.arrow {
+  margin-left: auto;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #666666;
+  transition: transform 0.3s;
+}
+
+.arrow-open {
+  transform: rotate(180deg);
+}
+
+.info {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21.7px;
+  letter-spacing: 0.01em;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include MobileSize {
+    line-height: 30px;
+
+    span {
+      margin-left: 10px;
+    }
+    img {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

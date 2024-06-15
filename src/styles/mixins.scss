@@ -1,0 +1,29 @@
+$DesktopSize: 1920;
+$MiniDesktopSize: 1440;
+$TabletSize: 768;
+$MobileSize: 320;
+
+@mixin DesktopSize() {
+  @media only screen and (max-width: #{$DesktopSize}px) {
+    @content;
+  }
+}
+
+@mixin MiniDesktopSize() {
+  @media only screen and (max-width: #{$MiniDesktopSize}px) {
+    @content;
+  }
+}
+
+@mixin TabletSize() {
+  @media only screen and (max-width: #{$TabletSize}px) {
+    @content;
+  }
+}
+
+@mixin MobileSize() {
+  @media only screen and (max-width: #{$MobileSize}px) {
+    @content;
+  }
+}
+

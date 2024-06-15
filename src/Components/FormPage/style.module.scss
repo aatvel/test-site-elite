@@ -1,0 +1,135 @@
+@import "../../styles/mixins";
+
+.root {
+  width: 100%;
+  padding: 120px 180px 120px 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+
+  font-family: "Gilroy", sans-serif;
+  color: #999999;
+
+  @include MiniDesktopSize {
+    padding: 75px 150px;
+  }
+
+  @include TabletSize {
+    flex-direction: column;
+    padding: 50px 30px 86px;
+  }
+
+  @include MobileSize {
+    padding: 30px 20px;
+  }
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  background-image: url("/../public/images/background_pic.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  font-weight: 600;
+
+  @include MiniDesktopSize {
+    background-size: 300px;
+  }
+
+  @include TabletSize {
+    flex-direction: column;
+    gap: 47px;
+  }
+  
+  @include MobileSize {
+    gap: 34px;
+    background-image: none;
+  }
+}
+
+.slider {
+  width: 755px;
+  height: inherit;
+
+  &__item {
+    width: 750px;
+
+    h4 {
+      font-size: 54px;
+      line-height: 64px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    P {
+      width: 750px;
+      margin-top: 32px;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
+      letter-spacing: 0.18px;
+    }
+  }
+
+  @include MiniDesktopSize {
+    width: 560px;
+
+    &__item {
+      width: 555px;
+
+      h4 {
+        font-size: 40px;
+        line-height: 48px;
+      }
+
+      P {
+        width: 550px;
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  @include TabletSize {
+    width: 750px;
+
+    &__item {
+      width: 750px;
+
+      h4 {
+        font-size: 36px;
+        line-height: 43px;
+      }
+
+      P {
+        width: 708px;
+      }
+    }
+  }
+
+
+  @include MobileSize {
+    width: 280px;
+
+    &__item {
+      width: 280px;
+
+      h4 {
+        font-size: 26px;
+        line-height: 32px;
+      }
+
+      P {
+        width: 280px;
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+}
