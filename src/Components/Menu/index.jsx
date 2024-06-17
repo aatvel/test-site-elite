@@ -12,6 +12,7 @@ export default class BurgerMenu extends React.Component {
         { id: 3, title: "Проекты", isOpen: false },
         { id: 4, title: "Компания", isOpen: false },
       ],
+      isMenuOpen: false,
     };
   }
 
@@ -23,14 +24,42 @@ export default class BurgerMenu extends React.Component {
     }));
   };
 
+  handleStateChange = (state) => {
+    this.setState({ isMenuOpen: state.isOpen }, () => {
+      if (this.state.isMenuOpen) {
+        this.disableScroll();
+      } else {
+        this.enableScroll();
+      }
+    });
+  };
+
+  disableScroll = () => {
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${window.scrollY}px`;
+    document.body.style.width = "100%";
+  };
+
+  enableScroll = () => {
+    const scrollY = document.body.style.top;
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  };
+
   render() {
     return (
       <Menu
         className="menu"
         right
         width={"100%"}
-        customBurgerIcon={<img src="/images/menu_icon.svg" />}
-        customCrossIcon={<img src="/images/menu_close_icon.svg" />}
+        customBurgerIcon={<img src="/images/menu_icon.svg" alt="menu icon" />}
+        customCrossIcon={
+          <img src="/images/menu_close_icon.svg" alt="close icon" />
+        }
+        isOpen={this.state.isMenuOpen}
+        onStateChange={this.handleStateChange}
       >
         {this.state.menuItems.map((item) => (
           <div className="menu-item-wrapper" key={item.id}>
@@ -61,8 +90,7 @@ export default class BurgerMenu extends React.Component {
                 <a href="#">Информационная безопасность</a>
               </li>
             </ul>
-
-            <hr class="divider" />
+            <hr className="divider" />
           </div>
         ))}
         <div className="info">
@@ -71,7 +99,7 @@ export default class BurgerMenu extends React.Component {
         </div>
         {this.props.isMobile && (
           <div className="info">
-            <img src="/images/phone_icon.svg" alt="geo icon" />
+            <img src="/images/phone_icon.svg" alt="phone icon" />
             <span>+7 (800) 941-34-28</span>
           </div>
         )}
